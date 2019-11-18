@@ -1,23 +1,121 @@
-.categories-container {
+.checkOutSection {
+  margin-top: 120px;
+  position: relative;
+}
+
+.checkOutSection .cartItem {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  margin: 0 0 15px 0;
+}
+
+.checkOutSection .cartItem .itemImg {
+  width: 156px;
+  height: 156px;
+}
+
+.checkOutSection .cartItem .itemImg img {
   width: 100%;
-  height: 15%;
-  border-bottom: 1px solid #E8E8E8;
-}
-
-.categories-container .itemImg {
-  width: 145px;
   height: 100%;
-}
-
-.itemImg img {
-  width: 80%;
-  height: 80%;
   -o-object-fit: contain;
      object-fit: contain;
-  margin: auto;
 }
 
-.qtyBtn {
+.checkOutSection .cartItem .card-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  padding: 20px 0 0 20px;
+}
+
+.checkOutSection .cartItem .card-body h6 {
+  width: 100%;
+  color: #96DAF0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.checkOutSection .cartItem .card-body h6 .price {
+  color: #242A3A;
+  margin: 0 0 0 50%;
+}
+
+.checkOutSection .cartItem .card-body h6 .deleteBtn {
+  position: relative;
+  margin-left: auto;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #ABABAB;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  cursor: pointer;
+}
+
+.checkOutSection .cartItem .card-body h6 .deleteBtn .slash {
+  position: absolute;
+  width: 23px;
+  height: 1px;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  background-color: #ABABAB;
+  left: 0;
+  pointer-events: none;
+}
+
+.checkOutSection .cartItem .card-body h6 .deleteBtn .leftLine {
+  top: -1px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.checkOutSection .cartItem .card-body h6 .deleteBtn .rightLine {
+  bottom: -1px;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.checkOutSection .cartItem .card-body .title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.checkOutSection .cartItem .card-body .size {
+  margin-left: 20px;
+}
+
+.checkOutSection .cartItem .card-body div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.checkOutSection .cartItem .card-body div .counter {
+  text-align: center;
+  height: 22px;
+  width: 50px;
+  border: 1px solid #ccc;
+  color: #ABABAB;
+  font-weight: bold;
+}
+
+.checkOutSection .cartItem .card-body div .qtyBtn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -36,55 +134,20 @@
   color: #ABABAB;
 }
 
-.minusBtn {
+.checkOutSection .cartItem .card-body div .minusBtn {
   margin-left: 20px;
   border-right: none;
 }
 
-.plus {
+.checkOutSection .cartItem .card-body div .plus {
   border-left: none;
 }
 
-.counter {
-  text-align: center;
-  height: 22px;
-  width: 50px;
-  border: 1px solid #ccc;
-  color: #ABABAB;
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
-}
-
-.deleteBtn {
-  position: relative;
-  width: 16px;
-  height: 16px;
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
-  cursor: pointer;
-}
-
-.deleteBtn .slash {
-  position: absolute;
-  width: 23px;
-  height: 1px;
-  -webkit-transform-origin: left;
-          transform-origin: left;
-  background-color: #ABABAB;
-  left: 0;
-  pointer-events: none;
-}
-
-.deleteBtn .leftLine {
-  top: -1px;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-
-.deleteBtn .rightLine {
-  bottom: -1px;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+.checkOutSection .orderRight {
+  position: -webkit-sticky;
+  position: sticky;
+  height: 250px;
+  top: 120px;
+  right: 0%;
 }
 /*# sourceMappingURL=CheckOutContent.css.map */

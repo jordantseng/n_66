@@ -15,9 +15,9 @@ class CartContent extends React.Component {
     super(props);
     this.state = {
       productsToBuy: props.data,
-      tripsToBuy: props.tripData,
-      costArray: [],
-      totalCost: props.totalCost,
+      
+      // posObj: {},
+
     };
   }
 
@@ -27,7 +27,11 @@ class CartContent extends React.Component {
     // console.log(productsToBuy);
   }
 
-
+  showProducts = () => {
+    // console.log(this.state.productsToBuy);
+    // const products = this.state.productsToBuy;
+    // console.log(products);
+  }
 
   deleteRender = async (i) => {
     let productsArray = await JSON.parse(localStorage.getItem('productsToBuy'));
@@ -41,16 +45,6 @@ class CartContent extends React.Component {
 
     console.log(productsArray)
     this.props.delete(productsArray)
-
-    let totalCost = 0;
-
-    productsArray.forEach(item=>{
-      let subCost = item.product_amount * item.product_price;
-      totalCost += subCost;
-    })
-
-    this.props.countTotalCost(totalCost);
-
 
     productsArray = JSON.stringify(productsArray);
     localStorage.setItem('productsToBuy', productsArray);
@@ -66,71 +60,26 @@ class CartContent extends React.Component {
         product.product_amount += 1;
       }
     });
-
     this.props.count1(productsArray)
-
-    let totalCost = 0;
-
-    productsArray.forEach(item=>{
-      let subCost = item.product_amount * item.product_price;
-      totalCost += subCost;
-    })
-
-    this.props.countTotalCost(totalCost);
-
     productsArray = JSON.stringify(productsArray);
     localStorage.setItem('productsToBuy', productsArray);
-    // return totalCost;
   }
 
   DecreaseQuantity = async (i) => {
     let productsArray = await JSON.parse(localStorage.getItem('productsToBuy'));
-
     productsArray.forEach(product => {
       if(product.code === i){
         product.product_amount <= 1 ? product.product_amount = 1 : product.product_amount -= 1;
       }
     });
-
-
-    const {count2} = this.props 
-
-    count2(productsArray)
-    let totalCost = 0;
-
-    productsArray.forEach(item=>{
-      let subCost = item.product_amount * item.product_price;
-      totalCost += subCost;
-    })
-
-    this.props.countTotalCost(totalCost);
-
+    this.props.count2(productsArray)
     productsArray = JSON.stringify(productsArray);
     localStorage.setItem('productsToBuy', productsArray);
-    // return totalCost;
-    
   }
 
-
-
   render() {
-    
+    // console.log(this.state.posObj
     const { data } = this.props;
-    const { tripData } = this.props;
-    console.log(tripData);
-
-
-    let totalCost = 0;
-
-    let productsArray = JSON.parse(localStorage.getItem('productsToBuy'));
-
-    productsArray.forEach(item=>{
-      let subCost = item.product_amount * item.product_price;
-      totalCost += subCost;
-      
-    })
-
-    // this.setState({totalCost})
 
     return (
       <>
@@ -175,47 +124,6 @@ class CartContent extends React.Component {
                 </div>
               ))}
 
-
-              {
-                tripData.map((item, i) => (
-                <div key={i} id={i} className="cartItem" >
-                  <div className="itemImg">
-                    <Card.Img
-                      variant="top"
-                      src={"http://localhost:3000/images/" + item.trip_menu_img}
-                    />
-                  </div>
-                  <Card.Body>
-                    <div className="d-flex w-100 flex-column align-items-start">
-                      <h6>
-                        帳篷
-                        <div className="price">{item.product_price}</div>
-
-                        <div onClick={() => this.deleteRender(item.code)} className="deleteBtn">
-                          <div className="slash leftLine"></div>
-                          <div className="slash rightLine"></div>
-                        </div>
-                      </h6>
-                      <div className="title">
-                        {item.product_name}
-                      </div>
-                      <span>
-                        尺寸: <span className="size">{item.product_size}</span>
-                      </span>
-
-                      <div className="quantity">
-                        <span>數量 : </span>
-                        <button variant="primary" onClick={() => this.DecreaseQuantity(item.code)} className="qtyBtn minusBtn"><span>-</span></button>
-                        <h5 className="counter">{item.product_amount}</h5>
-                        <button variant="primary" onClick={() => this.IncreaseQuantity(item.code)} className="qtyBtn plus"><span>+</span></button>
-                      </div>
-                    </div>
-                    <h3>{item.product_amount * item.product_price} 元</h3>
-                  </Card.Body>
-                </div>
-              ))
-              }
-
             </Col>
             <Col md={4}>
               <div className="userCard">
@@ -227,11 +135,6 @@ class CartContent extends React.Component {
                   進行結帳
                 </Link>
               </div>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <h2>總價: {this.props.totalCost}</h2>
             </Col>
           </Row>
         </Container>

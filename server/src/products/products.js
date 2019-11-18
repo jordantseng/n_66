@@ -7,7 +7,7 @@ const bluebird = require('bluebird');
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "root",
+  password: "",
   database: "n_66"
 });
 

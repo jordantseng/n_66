@@ -75,7 +75,7 @@ class HomeNavBar extends React.Component {
       <>
         <div className="n66navbar d-flex">
           <Link to="/">
-            <div className="Brand" >
+            <div className="Brand" href="#home">
               <img src={Logo} alt="N66" />
             </div>
           </Link>
@@ -121,11 +121,11 @@ class HomeNavBar extends React.Component {
             </div>
 
             <div className="ml-auto d-flex nav-bottom">
-              <Link to="/trips/page/1" className="navItem">
+              <a href="#features" className="navItem">
                 <h6>旅程目的地</h6>
                 <h6>探險的開始</h6>
                 <div className="blue-line"></div>
-              </Link>
+              </a>
               <Link to="/products" className="navItem">
                 <h6>裝備與器具</h6>
                 <h6>戶外用品</h6>

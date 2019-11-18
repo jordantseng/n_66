@@ -53,7 +53,7 @@ class CartContentCard extends React.Component {
     
     return (
       <>
-        {
+        {this.state.data.map(item => (
         //   <div className="cartItem" >
         //     <div className="itemImg">
         //       <Card.Img
@@ -90,7 +90,7 @@ class CartContentCard extends React.Component {
         //       <h3>{item.pos}</h3>
         //     </Card.Body>
         //   </div>
-        }
+        ))}
 
       </>
     );

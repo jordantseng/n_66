@@ -9,15 +9,14 @@ import DashBoard from "./pages/DashBoard/DashBoard";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Logout from "./components/Logout/Logout";
-import TripMenuPage from "./pages/TripMenuPage/TripMenuPage";
-import TripDesPage from "./pages/TripDesPage/TripDesPage";
-
+// import TripDesPage from "./pages/TripDesPage/TripDesPage";
+// import TripMenuPage from "./pages/TripMenuPage/TripMenuPage";
 
 //ProductPages
-import ProductList from "./pages/ProductList/ProductList";
-import ProductDetail from "./pages/ProductDetail/ProductDetail";
-import MyCart from "./pages/MyCart/MyCart";
-import CheckOut from "./pages/CheckOut/CheckOut";
+// import ProductList from "./pages/ProductList/ProductList";
+// import ProductDetail from "./pages/ProductDetail/ProductDetail";
+// import MyCart from "./pages/MyCart/MyCart";
+// import CheckOut from "./pages/CheckOut/CheckOut";
 
 class App extends Component {
   constructor(props) {
@@ -37,9 +36,6 @@ class App extends Component {
         case "./trips/:id":
           document.title = "N66 旅遊細節";
           break;
-          case "./products":
-            document.title = "N66 商品列表";
-            break;
         default:
           break;
       }
@@ -58,22 +54,26 @@ class App extends Component {
   render() {
     return (
       <Switch>
-        <Route path="/products" exact component={ProductList} />
-        <Route path="/products/:id" exact component={ProductDetail} />
-        <Route
+        {/* <Route path="/products" exact component={ProductList} /> */}
+        {/* <Route path="/products/:id" exact component={ProductDetail} /> */}
+        {/* <Route
           path="/cart"
           exact
           render={props => (
             <MyCart {...props} currentUser={this.state.currentUser} />
           )}
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/checkout"
           exact
           render={props => (
             <CheckOut {...props} currentUser={this.state.currentUser} />
           )}
-
+        /> */}
+        <Route
+          path="/comments"
+          render={props => <Comment currentUser={this.state.currentUser} />}
+        />
         <Route path="/logout" component={Logout} />
         <Route
           path="/login"
@@ -87,9 +87,9 @@ class App extends Component {
             <DashBoard {...props} currentUser={this.state.currentUser} />
           )}
         />
-        <Route path="/trips/page/:page" exact component={TripMenuPage} />
-        <Route path="/trips/page" exact component={TripMenuPage} />
-        <Route path="/trips/:id" exact component={TripDesPage} />
+        {/* <Route path="/trips/page/:page" exact component={TripMenuPage} /> */}
+        {/* <Route path="/trips/page" exact component={TripMenuPage} /> */}
+        {/* <Route path="/trips/:id" exact component={TripDesPage} /> */}
         <Route
           path="/"
           exact

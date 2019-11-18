@@ -6,7 +6,7 @@ const fs = require("fs");
 const upload = multer({ dest: "tmp_uploads" });
 const mysql = require("mysql");
 const moment = require("moment-timezone");
-const session = require("express-session"); 
+const session = require("express-session");
 const cors = require("cors");
 
 const db = mysql.createConnection({

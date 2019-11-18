@@ -1,204 +1,131 @@
 $primaryColor: #242A3A;
 $secColor: #96DAF0;
 
-.categories-container{
+.checkOutSection{
+    margin-top: 120px;
+    position: relative;
 
-    width:100%;
-    height:15%;
-    border-bottom: 1px solid #E8E8E8;
-    .itemImg{
-        width: 145px;
-        height: 100%;
-    
+    .cartItem{
+        display: flex !important;
+        align-items: center;
+        flex-wrap: nowrap;
+        flex-grow: 0;
+        margin: 0 0 15px 0;
+
+        .itemImg{
+            width: 156px;
+            height: 156px;
+
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        .card-body{
+            display: flex;
+            width: 100%;
+            padding: 20px 0 0 20px;
+            
+            h6{
+                width: 100%;
+                color: $secColor;
+                display: flex;
+                align-items: center;
+
+                .price{
+                    color: $primaryColor;
+                    margin: 0 0 0 50%;
+                }
+
+                .deleteBtn{
+                    position: relative;
+                    margin-left: auto;
+                    width: 16px;
+                    height: 16px;
+                    border: 1px solid #ABABAB;
+                    box-sizing: content-box;
+                    cursor: pointer;
+
+                    .slash{
+                        position: absolute;
+                        width: 23px;
+                        height: 1px;
+                        transform-origin: left;
+                        background-color: #ABABAB;
+                        left: 0;
+                        pointer-events: none;
+                    }
+
+                    .leftLine{
+                        top: -1px;
+                        transform: rotate(45deg);
+                        
+                    }
+
+                    .rightLine{
+                        bottom: -1px;
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+
+            .title{
+                font-size: 1.2rem;
+                font-weight: bold;
+            }
+
+            .size{
+                margin-left: 20px;
+            }
+
+            div{
+                display: flex;
+                // justify-content: start;
+                align-items: center;
+                
+                
+                .counter{
+                    text-align: center;
+                    height: 22px;
+                    width: 50px;
+                    border: 1px solid #ccc;
+                    color: #ABABAB;
+                    font-weight: bold;
+                }
+        
+                .qtyBtn{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 22px;
+                    height: 22px;
+                    font-size: 1rem;
+                    text-align: center;
+                    border: 1px solid #ccc;
+                    cursor: pointer;
+                    color: #ABABAB;
+                }
+        
+                .minusBtn{
+                    margin-left: 20px;
+                    border-right: none;
+                }
+
+                .plus{
+                    border-left: none;
+                }
+            }
+        }
+    }
+
+
+    .orderRight{
+        position: sticky;
+        height: 250px;
+        top: 120px;
+        right: 0%;
+
     }
 }
-
-.itemImg img{
-    width: 80%;
-    height: 80%;
-    object-fit: contain;
-    margin:auto;
-}
-
-  .qtyBtn{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 22px;
-                height: 22px;
-                font-size: 1rem;
-                text-align: center;
-                border: 1px solid #ccc;
-                cursor: pointer;
-                color: #ABABAB;
-}   
-    
-            .minusBtn{
-                margin-left: 20px;
-                border-right: none;
-            }
-
-            .plus{
-                border-left: none;
-            }
-                .counter{
-                text-align: center;
-                height: 22px;
-                width: 50px;
-                border: 1px solid #ccc;
-                color: #ABABAB;
-                font-weight: bold;
-                margin:0;
-                padding:0;
-            }
-.deleteBtn{
-                position: relative;
-
-                width: 16px;
-                height: 16px;
-         
-                box-sizing: content-box;
-                cursor: pointer;
-
-                .slash{
-                    position: absolute;
-                    width: 23px;
-                    height: 1px;
-                    transform-origin: left;
-                    background-color: #ABABAB;
-                    left: 0;
-                    pointer-events: none;
-                }
-
-                .leftLine{
-                    top: -1px;
-                    transform: rotate(45deg);
-                    
-                }
-
-                .rightLine{
-                    bottom: -1px;
-                    transform: rotate(-45deg);
-                }
-            }
-
-
-            
-//
-
-
-
-// .cartItem{
-//     display: flex !important;
-//     align-items: center;
-//     flex-wrap: nowrap;
-//     flex-grow: 0;
-//     margin: 0 0 15px 0;
-
-//     .itemImg{
-//         width: 156px;
-//         height: 156px;
-
-//         img{
-//             width: 100%;
-//             height: 100%;
-//             object-fit: contain;
-//         }
-//     }
-
-//     .card-body{
-//         display: flex;
-//         width: 100%;
-//         padding: 20px 0 0 20px;
-        
-//         h6{
-//             width: 100%;
-//             color: $secColor;
-//             display: flex;
-//             align-items: center;
-
-//             .price{
-//                 color: $primaryColor;
-//                 margin: 0 0 0 50%;
-//             }
-
-//             .deleteBtn{
-//                 position: relative;
-//                 margin-left: auto;
-//                 width: 16px;
-//                 height: 16px;
-//                 border: 1px solid #ABABAB;
-//                 box-sizing: content-box;
-//                 cursor: pointer;
-
-//                 .slash{
-//                     position: absolute;
-//                     width: 23px;
-//                     height: 1px;
-//                     transform-origin: left;
-//                     background-color: #ABABAB;
-//                     left: 0;
-//                     pointer-events: none;
-//                 }
-
-//                 .leftLine{
-//                     top: -1px;
-//                     transform: rotate(45deg);
-                    
-//                 }
-
-//                 .rightLine{
-//                     bottom: -1px;
-//                     transform: rotate(-45deg);
-//                 }
-//             }
-//         }
-
-//         .title{
-//             font-size: 1.2rem;
-//             font-weight: bold;
-//         }
-
-//         .size{
-//             margin-left: 20px;
-//         }
-
-//         div{
-//             display: flex;
-//             justify-content: start;
-//             align-items: center;
-            
-            
-//             .counter{
-//                 text-align: center;
-//                 height: 22px;
-//                 width: 50px;
-//                 border: 1px solid #ccc;
-//                 color: #ABABAB;
-//                 font-weight: bold;
-//             }
-    
-//             .qtyBtn{
-//                 display: flex;
-//                 justify-content: center;
-//                 align-items: center;
-//                 width: 22px;
-//                 height: 22px;
-//                 font-size: 1rem;
-//                 text-align: center;
-//                 border: 1px solid #ccc;
-//                 cursor: pointer;
-//                 color: #ABABAB;
-//             }
-    
-//             .minusBtn{
-//                 margin-left: 20px;
-//                 border-right: none;
-//             }
-
-//             .plus{
-//                 border-left: none;
-//             }
-//         }
-//     }
-// }
