@@ -6,10 +6,10 @@ const nodemailer = require("nodemailer");
 const bluebird = require("bluebird");
 
 const db = mysql.createConnection({
-  // socketPath: "/Applications/MAMP/tmp/mysql/mysql.sock",
+  socketPath: "/Applications/MAMP/tmp/mysql/mysql.sock",
   host: "localhost",
   user: "root",
-  password: "",
+  password: "root",
   database: "n_66"
 });
 
@@ -83,8 +83,10 @@ const usePasswordHashToMakeToken = ({
   password: passwordHash,
   u_id: userId
 }) => {
-  const secret = passwordHash;
+  const secret = passwordHash; // secretKey為使用者密碼
+
   const token = jwt.sign({ userId }, secret, {
+    // token為加密後的userId和secretKey(password)組成
     expiresIn: 3600 // 1 hour
   });
   return token;
@@ -173,7 +175,7 @@ router.post("/register", (req, res) => {
     res.json(user);
   }
 
-  const sql_r = "SELECT COUNT(*) AS cnt FROM`members_list` WHERE email = ?";
+  const sql_r = "SELECT COUNT(*) AS cnt FROM `members_list` WHERE email = ?";
   db.queryAsync(sql_r, [req.body.email])
     .then(results => {
       if (results[0].cnt > 0) {

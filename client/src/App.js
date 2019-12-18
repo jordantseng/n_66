@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import jwtDecode from "jwt-decode";
 import { Route, Switch, withRouter } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.css"; // 這個位置不能動!!
+import "bootstrap/dist/css/bootstrap.css";
 import "font-awesome/css/font-awesome.css";
 
 //Components
@@ -15,8 +15,6 @@ import UpdatePassword from "./components/UpdatePassword/UpdatePassword";
 import Logout from "./components/Logout/Logout";
 import TripMenuPage from "./pages/TripMenuPage/TripMenuPage";
 import TripDesPage from "./pages/TripDesPage/TripDesPage";
-// import Join from "./pages/socketClient/Join";
-// import Chat from "./pages/socketClient/Chat";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 //ProductPages

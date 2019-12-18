@@ -123,11 +123,9 @@ class Login extends React.Component {
     await this.setState({
       loginJoi: { email, password }
     });
-    console.log(this.state.joi);
     const result = Joi.validate(this.state.loginJoi, this.schemaLogin, {
       abortEarly: false
     });
-    console.log(result);
     if (!result.error) return null;
     const errors = {};
     for (let item of result.error.details) errors[item.path[0]] = item.message;
@@ -154,7 +152,6 @@ class Login extends React.Component {
     e.preventDefault();
 
     const errors = await this.loginValidate();
-    console.log(errors);
     await this.setState({ errors: errors || {} });
     if (errors) return;
 
@@ -176,12 +173,10 @@ class Login extends React.Component {
         return response.json();
       })
       .then(data => {
-        console.log(data);
         if (!data.loggedIn) {
           const state = { ...this.state };
           state.msg.loginMsg = data.msg;
           state.msg.type = "alert alert-danger";
-          console.log(data.msg);
           this.setState(state);
         } else {
           const { token: jwt } = data;
@@ -202,7 +197,6 @@ class Login extends React.Component {
     e.preventDefault();
 
     const errors = await this.signupValidate();
-    console.log(errors);
     await this.setState({ errors: errors || {} });
     if (errors) return;
 
@@ -224,11 +218,9 @@ class Login extends React.Component {
         return response.json();
       })
       .then(data => {
-        console.log(data);
         if (data.loggedIn) {
           // 註冊成功, jwt存進localstorage
           const { token: jwt } = data;
-          console.log("data", data);
           localStorage.setItem("token", jwt);
           const state = { ...this.state };
           state.msg.signUpMsg = "註冊成功";
@@ -240,7 +232,6 @@ class Login extends React.Component {
           state.msg.signUpMsg = data.msg;
           state.msg.type = "alert alert-danger";
           this.setState(state);
-          console.log(this.state);
         }
       })
       .catch(function(err) {
@@ -255,20 +246,14 @@ class Login extends React.Component {
   componentDidMount() {
     document.title = "66°N - 登入";
 
-    // let body = document.querySelector('body');
-    // body.style.overflowY ='auto';
-
     // JS DOM control
     let wantSignUp = false;
-
     let windowWidth = window.innerWidth;
-
     let signIn = document.querySelector(".signIn");
     let registered = document.querySelector(".registered");
     let mountainBg = document.querySelector(".mountainBg");
     let titleUp = document.querySelector("#titleUp");
     let titleIn = document.querySelector("#titleIn");
-
     let signInForm = document.querySelector(".sign-in");
     let signUpForm = document.querySelector(".sign-up");
     let signUpBtn = document.querySelector(".__btn");
@@ -386,7 +371,8 @@ class Login extends React.Component {
   }
 
   render() {
-    let classes = `feedback ${this.state.msg.type}`;
+    const { errors, msg } = this.state;
+    let classes = `feedback ${msg.type}`;
     return (
       <>
         <LoginNavBar
@@ -413,11 +399,9 @@ class Login extends React.Component {
                       onChange={this.logChange}
                     />
                   </label>
-                  {
-                    <div className="alert alert-danger error-msg">
-                      {this.state.errors.email || ""}
-                    </div>
-                  }
+                  <div className="alert alert-danger error-msg">
+                    {errors.email}
+                  </div>
                   <label>
                     <input
                       type="password"
@@ -426,24 +410,17 @@ class Login extends React.Component {
                       onChange={this.logChange}
                     />
                   </label>
-                  {
-                    <div className="alert alert-danger error-msg">
-                      {this.state.errors.password || ""}
-                    </div>
-                  }
+                  <div className="alert alert-danger error-msg">
+                    {errors.password}
+                  </div>
                   <Link to="/password/recover" className="forgot-pass">
                     忘記密碼?
                   </Link>
-                  {
-                    <div className={classes}>
-                      {this.state.msg.loginMsg || ""}
-                    </div>
-                  }
+                  <div className={classes}>{msg.loginMsg}</div>
                   <button type="submit" className="submit">
                     登入
                   </button>
                 </form>
-
                 <form
                   className="form sign-up"
                   onSubmit={this.handleSignUpSubmit}
@@ -459,12 +436,9 @@ class Login extends React.Component {
                         onChange={this.logChange}
                       />
                     </label>
-
-                    {
-                      <div className="alert alert-danger error-msg">
-                        {this.state.errors.email || ""}
-                      </div>
-                    }
+                    <div className="alert alert-danger error-msg">
+                      {errors.email}
+                    </div>
                     <label>
                       <input
                         type="password"
@@ -473,11 +447,9 @@ class Login extends React.Component {
                         onChange={this.logChange}
                       />
                     </label>
-                    {
-                      <div className="alert alert-danger error-msg">
-                        {this.state.errors.register_password || ""}
-                      </div>
-                    }
+                    <div className="alert alert-danger error-msg">
+                      {errors.register_password}
+                    </div>
                     <label>
                       <input
                         name="repeat_password"
@@ -486,13 +458,9 @@ class Login extends React.Component {
                         onChange={this.logChange}
                       />
                     </label>
-                    {
-                      <div className={classes}>
-                        {this.state.errors.repeat_password ||
-                          this.state.msg.signUpMsg ||
-                          ""}
-                      </div>
-                    }
+                    <div className={classes}>
+                      {errors.repeat_password || msg.signUpMsg}
+                    </div>
                     <button type="submit" className="submit register">
                       註冊
                     </button>

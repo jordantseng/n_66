@@ -8,10 +8,10 @@ const fs = require("fs");
 const bluebird = require("bluebird");
 
 const db = mysql.createConnection({
-  // socketPath: "/Applications/MAMP/tmp/mysql/mysql.sock",
+  socketPath: "/Applications/MAMP/tmp/mysql/mysql.sock",
   host: "localhost",
   user: "root",
-  password: "",
+  password: "root",
   database: "n_66"
 });
 
