@@ -72,8 +72,6 @@ class HomeNavBar extends React.Component {
 
   render() {
     const { currentUser } = this.props;
-    const { numberOfProducts } = this.props;
-
     return (
       <>
         <div className="n66navbar d-flex">

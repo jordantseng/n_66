@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav, Breadcrumb } from "react-bootstrap";
+import { Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 // Components
 import { ReactComponent as Logo } from "./images/logo.svg";
@@ -10,8 +10,6 @@ import { ReactComponent as Logout } from "./images/logout.svg";
 import "./NavBar.css";
 
 class NavBar extends React.Component {
-  state = {};
-
   componentDidMount() {
     // let navbar = document.querySelector(".navbar-container");
     let toggler = document.querySelector(".navBtn");
@@ -45,8 +43,6 @@ class NavBar extends React.Component {
       } else {
         rightMenu.style.left = "100%";
         toggler.style.backgroundColor = "transparent";
-        // toggler.style.borderLeftColor = '#fff';
-        // navbar.style.backgroundColor = 'transparent';
         body.style.overflowY = "scroll";
         upLine.style.transform = "rotate(0)";
         downLine.style.transform = "rotate(0)";
@@ -97,14 +93,6 @@ class NavBar extends React.Component {
                 <span>旅遊評價</span>
                 <div className="blue-line"></div>
               </Link>
-              {/* <Link
-                to="#"
-                className="navbar-item nav-link"
-                style={{ marginRight: "2rem" }}
-              >
-                <span>我們的理念</span>
-                <div className="blue-line"></div>
-              </Link> */}
               {currentUser && (
                 <>
                   <Link to="/logout" className="navbar-link icon-container">

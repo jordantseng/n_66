@@ -47,7 +47,7 @@ class ProductDetail extends React.Component {
     // console.log(this.props.currentUser);
   }
 
-  handelAddWish = async () => {
+  handleAddWish = async () => {
     const productsDetail = { ...this.state.ProductsDetail[0] };
     const currentUser = { ...this.props.currentUser };
     const user = { ...currentUser.user };
@@ -68,7 +68,7 @@ class ProductDetail extends React.Component {
     };
     console.log(productsDetail.product_router);
     if (isLogin) {
-      const { data } = axios
+      axios
         .post("http://localhost:3001/products/add_wishlist", obj)
         .then(res => {
           console.log(res.data);
@@ -88,11 +88,10 @@ class ProductDetail extends React.Component {
   };
 
   render() {
-    const { numberOfProducts } = this.props.numberOfProducts;
     let { currentUser } = this.props;
     if (currentUser) {
       let obj = { ...currentUser };
-      //解構付值obj
+      //解構賦值obj
       let { user } = obj;
       //複製user
       let uid = { ...user };
@@ -114,7 +113,7 @@ class ProductDetail extends React.Component {
           relatedProducts={this.state.relatedProducts}
           numberOfProducts={this.props.numberOfProducts}
           changeNumOfProduct={this.props.changeNumOfProduct}
-          addWish={this.handelAddWish}
+          addWish={this.handleAddWish}
         />
         {/* <h1>{this.state.Pictures}</h1> */}
         <ToastContainer autoClose={2000} />

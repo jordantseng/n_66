@@ -4,8 +4,6 @@ import "./Pagination.css";
 
 const Pagination = props => {
   const { itemsCount, pageSize, currentPage, onPageChange } = props;
-  console.log(currentPage);
-
   const pageCount = Math.ceil(itemsCount / pageSize);
   if (pageCount === 1) return null;
   const pages = _.range(1, pageCount + 1); // [1,2,...pageCount + 1]

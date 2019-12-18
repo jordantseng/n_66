@@ -12,7 +12,7 @@ import Footer from "../../components/Footer/Footer";
 import "./TripDesPage.scss";
 import { ReactComponent as Cart } from "./cart.svg";
 import { Link } from "react-router-dom";
-import GoTop from '../../components/GoTop/GoTop'
+import GoTop from "../../components/GoTop/GoTop";
 
 class TripDesPage extends Component {
   constructor(props) {
@@ -147,12 +147,10 @@ class TripDesPage extends Component {
       product_id: productsDetail.sid,
       liked: 1
     };
-    console.log("obj", obj);
     if (isLogin) {
-      const { data } = axios
+      axios
         .post("http://localhost:3001/trips/add_wishlist", obj)
         .then(res => {
-          console.log(res.data);
           this.setState({ feedback: res.data, collected: true });
           if (this.state.feedback.success) {
             toast.success(this.state.feedback.msg.text);
@@ -182,7 +180,7 @@ class TripDesPage extends Component {
 
     return (
       <div>
-        <GoTop/>
+        <GoTop />
         <TripDesNav detailData={this.state.detailData} />
         <HomeNavBar currentUser={this.props.currentUser} />
         <div className="TripDesCarousel">

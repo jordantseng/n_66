@@ -85,7 +85,7 @@ class CommentList extends Component {
                       }}
                     >
                       {comment.likedAmount.includes(currentUser.user.u_id) ? (
-                        comment.likedAmount.length == 1 ? (
+                        comment.likedAmount.length === 1 ? (
                           "你覺得這篇留言很讚"
                         ) : (
                           `你和其他 ${comment.likedAmount.length - 1} 人`

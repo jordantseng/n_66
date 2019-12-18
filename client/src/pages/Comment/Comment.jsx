@@ -50,8 +50,6 @@ class Comment extends Component {
         for (let i = 0; i < data.length; i++) {
           data[i].likedAmount = likedAmountJson[i];
         }
-        console.log(data);
-
         this.setState({
           comments: data,
           ratingAvg
@@ -97,10 +95,9 @@ class Comment extends Component {
   handleLike = async comment => {
     if (this.props.currentUser) {
       // server
-      const { data } = await axios.put(
-        "http://localhost:3001/comments/liked/" + comment.c_id,
-        { u_id: this.props.currentUser.user.u_id }
-      );
+      await axios.put("http://localhost:3001/comments/liked/" + comment.c_id, {
+        u_id: this.props.currentUser.user.u_id
+      });
 
       const {
         data: likedNum
