@@ -27,8 +27,6 @@ import half_star from "./images/svg/half_star.svg";
 //CSS
 import "./HomeEarth.css";
 
-import { Link } from "react-router-dom";
-
 class HomeEarth extends React.Component {
   componentDidMount() {
     let countries = document.querySelectorAll(".country");

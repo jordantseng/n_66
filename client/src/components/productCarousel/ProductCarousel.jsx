@@ -1,9 +1,9 @@
 import React from "react";
 import Slider from "react-slick";
-import { Container, Row, Col, Tabs, Tab, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Tabs, Tab, Card } from "react-bootstrap";
 import { toast } from "react-toastify";
 import ReactImageMagnify from 'react-image-magnify';
-import { Link } from "react-router-dom";
+
 //css
 import "./productCarousel.css";
 
@@ -14,7 +14,7 @@ import left from './img/left.svg'
 
 
 function NextArrow(props) {
-  const { className, style, onClick } = props;
+  const { onClick } = props;
   return (
     <div
       className="nextArrow customArrow"
@@ -26,7 +26,7 @@ function NextArrow(props) {
 }
 
 function PrevArrow(props) {
-  const { className, style, onClick } = props;
+  const { onClick } = props;
   return (
     <div
       className="prevArrow customArrow"
@@ -59,9 +59,6 @@ class ProductCarousel extends React.Component {
       nav1: this.slider1,
       nav2: this.slider2
     });
-
-    let pic2s = document.querySelectorAll('.slick-slide');
-    console.log(document.querySelectorAll('.slick-slide'));
   }
 
   sliders() {
@@ -170,8 +167,6 @@ class ProductCarousel extends React.Component {
         console.log('none');
       }
     }
-
-    const { numberOfProducts } = this.props;
 
     const mainSettings = {
       pauseOnHover: true,

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 
 //images svg
@@ -279,12 +279,7 @@ class CartContent extends React.Component {
   };
 
   render() {
-    const { currentUser } = this.props;
-    const { data } = this.props;
-    const { tripData } = this.props;
-    const { numberOfProducts } = this.props;
-    console.log(numberOfProducts);
-
+    const { data, tripData, numberOfProducts } = this.props;
     if (!numberOfProducts || numberOfProducts === "0") {
       return (
         <>
