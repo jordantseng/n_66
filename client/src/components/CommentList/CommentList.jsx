@@ -10,6 +10,7 @@ class CommentList extends Component {
 
     return (
       <>
+        {comments.length === 0 && <p className="text-center">尚未有留言</p>}
         {comments.map(comment => (
           <div
             className="comment-container d-flex flex-column mb-4"
